@@ -53,25 +53,24 @@ io.on('connection', (socket) => {
 
     // Socket.io events
     socket.on('openProject', (project) => {
-        socket.join(project)
+        socket.join(project);
     })
 
     socket.on('newTask', (task) => {
         const project = task.project
         socket.to(project).emit('addTask', task)
     })
-
-
+    
     socket.on('deleteTask', (task) => {
         const project = task.project
         socket.to(project).emit('deletedTask', task)
     })
-
+    
     socket.on('editTask', (task) => {
         const project = task.project._id
         socket.to(project).emit('updatedTask', task)
     })
-
+    
     socket.on('completeTask', (task) => {
         const project = task.project._id
         socket.to(project).emit('completedTask', task)
