@@ -27,7 +27,7 @@ const register = async (req, res) => {
             token
         })
 
-        res.json({ msg: 'Usuario creado correctamente, revisa tu email para confirmar tu cuenta' })
+        res.json({ msg: 'Usuario creado correctamente, inicia sesión' })
     } catch (error) {
         console.log(error)
     }
